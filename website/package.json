@@ -13,6 +13,7 @@
     "@nextui-org/chip": "^2.0.32",
     "@nextui-org/input": "^2.2.4",
     "@nextui-org/react": "^2.4.6",
+    "@nextui-org/switch": "^2.0.33",
     "framer-motion": "^11.3.30",
     "next": "14.2.6",
     "primereact": "^10.8.2",
