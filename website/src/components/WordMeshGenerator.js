@@ -3,17 +3,20 @@ import React from 'react';
 import {Input} from "@nextui-org/input";
 
 const WordMeshGenerator = ({updateMeshRef}) => {
-  const [numOfRows, setNumOfRows] = React.useState(0);
-  const [numOfCols, setNumOfCols] = React.useState(0);
+  const [numOfRows, setNumOfRows] = React.useState(1);
+  const [numOfCols, setNumOfCols] = React.useState(1);
   const update = () => {
     updateMeshRef(numOfRows, numOfCols);
   }
   const onValueChange = (value, rows) => {
-    const absValue = Math.abs(value)
+    if (value === "") return;
+    const parsedValue = parseInt(value);
+    if (Number.isNaN(parsedValue)) return;
+    if (parsedValue < 1) return;
     if (rows){
-      setNumOfRows(absValue)
+      setNumOfRows(parsedValue)
     } else {
-      setNumOfCols(absValue)
+      setNumOfCols(parsedValue)
     }
   }
   return (
