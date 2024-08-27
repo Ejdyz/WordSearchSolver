@@ -34,7 +34,7 @@ const WordsInputs = ({updateWordsToFind}) => {
       <div className={"w-1/2  border rounded-2xl  "}>
         <div className={"w-full min-h-32 max-h-96 overflow-auto"}>
           {words.map((c,i) => (
-            <Chip color={"primary"} key={c} className={"m-1 max-w-44"} onClose={() => removeClassAtIndex(i)}><p className={"max-w-44 overflow-auto"}>{c}</p></Chip>
+            <Chip color={"primary"} key={c + i} className={"m-1 max-w-44"} onClose={() => removeClassAtIndex(i)}><p className={"max-w-44 overflow-auto"}>{c}</p></Chip>
           ))}
         </div>
       </div>
