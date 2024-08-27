@@ -8,6 +8,14 @@ const WordMeshGenerator = ({updateMeshRef}) => {
   const update = () => {
     updateMeshRef(numOfRows, numOfCols);
   }
+  const onValueChange = (value, rows) => {
+    const absValue = Math.abs(value)
+    if (rows){
+      setNumOfRows(absValue)
+    } else {
+      setNumOfCols(absValue)
+    }
+  }
   return (
     <div className={"w-full justify-center flex"}>
       <div className={"flex flex-col gap-2"}>
@@ -18,7 +26,7 @@ const WordMeshGenerator = ({updateMeshRef}) => {
             id="numOfRows"
             type="number"
             value={numOfRows}
-            onValueChange={setNumOfRows}
+            onValueChange={(e) => onValueChange(e, true)}
           />
         </div>
         <div className={"flex flex-col"}>
@@ -28,7 +36,7 @@ const WordMeshGenerator = ({updateMeshRef}) => {
             id="numOfCols"
             type="number"
             value={numOfCols}
-            onValueChange={setNumOfCols}
+            onValueChange={(e) => onValueChange(e, false)}
           />
         </div>
         <button
