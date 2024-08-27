@@ -3,8 +3,11 @@ import AppWrapper from "@/components/AppWrapper";
 export default function Home() {
   return (
     <>
-      <p className={"text-center"}>Hello world</p>
-      <AppWrapper />
+      <div className={"w-full flex justify-center"}>
+        <div className={"w-8/12"}>
+          <AppWrapper />
+        </div>
+      </div>
     </>
 
   );
