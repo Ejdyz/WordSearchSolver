@@ -25,6 +25,7 @@ const WordsInputs = ({updateWordsToFind}) => {
     <div className={"flex w-full gap-4 px-8 flex-col items-center "}>
       <div className={"w-1/2"}>
         <Input
+          label={"Words to find"}
           value={inputWord}
           onValueChange={setInputWord}
           onKeyDown={(e)=> save(e)}
