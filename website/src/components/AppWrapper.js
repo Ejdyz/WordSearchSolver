@@ -1,13 +1,14 @@
 "use client"
 import React from 'react';
 import WordMeshGenerator from "@/components/WordMeshGenerator";
-import MeshInputs from "@/components/MeshInputs";
 import {useRouter} from "next/navigation";
 import WordsInputs from "@/components/WordsInputs";
 import { Stepper } from 'primereact/stepper'
 import { StepperPanel } from 'primereact/stepperpanel';
 import {Button} from "primereact/button";
 import MeshSolution from "@/components/MeshSolution";
+import InputModeSelector from "@/components/InputModeSelector";
+
 const AppWrapper = () => {
   const router = useRouter();
   const stage = React.useRef(0);
@@ -31,28 +32,32 @@ const AppWrapper = () => {
   }
   if (stage.current === 0) {
     return (
-      <Stepper ref={stepperRef}>
-        <StepperPanel header="Create the mesh" className={"bg-black"}>
-          <WordMeshGenerator updateMeshRef={createMeshRef}/>
-        </StepperPanel>
-        <StepperPanel header="Fill it up">
-          <MeshInputs meshRef={WordMeshRef}/>
-          <div className="flex pt-4 gap-2 justify-between w-full">
-            <Button label="Back" severity="secondary" icon="pi pi-arrow-left"
-                    onClick={() => stepperRef.current.prevCallback()}/>
-            <Button label="Next" icon="pi pi-arrow-right" iconPos="right"
-                    onClick={() => stepperRef.current.nextCallback()}/>
-          </div>
-        </StepperPanel>
-        <StepperPanel header="Input the words to find">
-          <WordsInputs updateWordsToFind={updateWordsToFind}/>
-          <div className="flex pt-4 justify-between">
-            <Button label="Back" severity="secondary" icon="pi pi-arrow-left"
-                    onClick={() => stepperRef.current.prevCallback()}/>
-            <Button label="Submit" severity="primary" icon="pi pi-arrow-left" onClick={submit}/>
-          </div>
-        </StepperPanel>
-      </Stepper>
+      <div className={"w-full flex items-center flex-col"}>
+        <div className={"md:w-8/12 w-full"}>
+          <Stepper ref={stepperRef}>
+            <StepperPanel header="Create the mesh" className={"bg-black"}>
+              <WordMeshGenerator updateMeshRef={createMeshRef}/>
+            </StepperPanel>
+            <StepperPanel header="Fill it up">
+              <InputModeSelector meshRef={WordMeshRef}/>
+              <div className="flex pt-4 gap-2 justify-between w-full">
+                <Button label="Back" severity="secondary" icon="pi pi-arrow-left"
+                        onClick={() => stepperRef.current.prevCallback()}/>
+                <Button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                        onClick={() => stepperRef.current.nextCallback()}/>
+              </div>
+            </StepperPanel>
+            <StepperPanel header="Input the words to find">
+              <WordsInputs updateWordsToFind={updateWordsToFind}/>
+              <div className="flex pt-4 justify-between">
+                <Button label="Back" severity="secondary" icon="pi pi-arrow-left"
+                        onClick={() => stepperRef.current.prevCallback()}/>
+                <Button label="Submit" severity="primary" icon="pi pi-arrow-left" onClick={submit}/>
+              </div>
+            </StepperPanel>
+          </Stepper>
+        </div>
+      </div>
     );
   }
   if (stage.current === 1){

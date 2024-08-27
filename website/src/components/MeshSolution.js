@@ -97,7 +97,7 @@ const MeshSolution = ({meshRef, wordsToFindRef}) => {
       <h1>Words to find</h1>
       <div className={"w-full  border rounded-2xl  "}>
         <div className={"w-full min-h-32 max-h-96 overflow-auto"}>
-          {wordsToFindRef.current.map((c, i) => (
+          {wordsToFindRef.current.map((c) => (
             <Chip
               onClick={() => handleHover(c)}
               onMouseLeave={resetHover}

@@ -23,7 +23,7 @@ const WordsInputs = ({updateWordsToFind}) => {
 
   return (
     <div className={"flex w-full gap-4 px-8 flex-col items-center "}>
-      <div className={"w-1/2"}>
+      <div className={"md:w-1/2 w-11/12"}>
         <Input
           label={"Words to find"}
           value={inputWord}
@@ -31,7 +31,7 @@ const WordsInputs = ({updateWordsToFind}) => {
           onKeyDown={(e)=> save(e)}
         />
       </div>
-      <div className={"w-1/2  border rounded-2xl  "}>
+      <div className={"md:w-1/2 w-full  border rounded-2xl  "}>
         <div className={"w-full min-h-32 max-h-96 overflow-auto"}>
           {words.map((c,i) => (
             <Chip color={"primary"} key={c + i} className={"m-1 max-w-44"} onClose={() => removeClassAtIndex(i)}><p className={"max-w-44 overflow-auto"}>{c}</p></Chip>
