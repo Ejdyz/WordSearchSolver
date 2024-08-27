@@ -6,10 +6,10 @@ const MeshInputs = ({meshRef}) => {
     meshRef.current[rowIndex][colIndex] = value.toUpperCase();
     let nextPosition = [rowIndex, colIndex];
 
-    if(colIndex < meshRef.current[rowIndex].length - 1) {
+    if (colIndex < meshRef.current[rowIndex].length - 1) {
       nextPosition = [rowIndex, colIndex + 1];
-    }else{
-      if(rowIndex < meshRef.current.length - 1) {
+    } else {
+      if (rowIndex < meshRef.current.length - 1) {
         nextPosition = [rowIndex + 1, 0];
       }
     }
@@ -27,7 +27,7 @@ const MeshInputs = ({meshRef}) => {
               <input
                 id={`${rowIndex}-${colIndex}`}
                 key={`${rowIndex}-${colIndex}`}
-                className={"text-black aspect-square text-center text-2xl p-1 max-w-[2ch] rounded capitalize"}
+                className={"text-black aspect-square text-center text-2xl p-1 max-w-[2.5ch] rounded capitalize border"}
                 type={"text"}
                 maxLength={1}
                 onChange={(e) => {
